@@ -13,8 +13,8 @@ $("#fade").modal({
   fadeDuration: 1000
 });
 
-$(document).ready(function() {
-	
+$(document).ready(function () {
+
   $(".monica").monica();
 
 });
@@ -22,12 +22,12 @@ $(document).ready(function() {
 /* Riddle API */
 function generateRiddle() {
 
-$.ajax({
-  method: 'GET',
-  url: 'https://api.api-ninjas.com/v1/riddles',
-  headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed'},
-  contentType: 'application/json',
-  success: function(result) {
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/riddles',
+    headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed' },
+    contentType: 'application/json',
+    success: function (result) {
       console.log(result);
 
       riddleContainer.removeClass('hide');
@@ -38,33 +38,41 @@ $.ajax({
       emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
       let apiQuestion = result[0].question;
       let apiAnswer = result[0].answer;
+      let riddleObject = {};
+      riddleObject["Question"] = apiQuestion;
+      riddleObject["Answer"] = apiAnswer;
+
+      // console.log(riddleObject);
+
 
       displayContainer.append(newQuestionContainer);
-      
+
       newQuestionContainer.append(newQuestionItem);
       newQuestionContainer.append(newQuestion);
       // newQuestion.append(result[0].question);
       newQuestionContainer.append(newAnswer);
-      newAnswer.append(emptyHeart);
+      newQuestionContainer.append(emptyHeart);
 
 
-      console.log("got here");
-      console.log (newQuestion);
-      console.log(newAnswer);
-      
-      newQuestion.text("Question: "+apiQuestion);
-      newAnswer.text("Answer: "+apiAnswer);
+      // console.log("got here");
+      // console.log(newQuestion);
+      // console.log(newAnswer);
+
+      newQuestion.text("Question: " + apiQuestion);
+      newAnswer.text("Answer: " + apiAnswer);
+
+      savedData.push(apiQuestion + apiAnswer)
+      // console.log(savedData);
 
 
-      savedData.push(apiQuestion + apiAnswer) 
-      // console.log(savedData); 
-
-
-  },
-  error: function ajaxError(jqXHR) {
+    },
+    error: function ajaxError(jqXHR) {
       console.error('Error: ', jqXHR.responseText);
-  }
-});
+    }
+  });
+
+
+
 
 }
 
@@ -73,72 +81,72 @@ function generateBucketListItem() {
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/bucketlist',
-    headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed'},
+    headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed' },
     contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
+    success: function (result) {
+      console.log(result);
 
       const newDiv = $('<div class=display-item>')
       const newBucketListItem = $('<div class=bucketlistItem>')
       const newParagraph = $('<p>');
       emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
-     const apiBucketItem = result.item  
-     let bucketGenerate = newBucketListItem.text(apiBucketItem)
+      const apiBucketItem = result.item
+      let bucketGenerate = newBucketListItem.text(apiBucketItem)
 
 
-     displayContainer.append(newDiv);
-     newDiv.append(newBucketListItem);
-     newBucketListItem.append(bucketGenerate);
-     newBucketListItem.append(newParagraph);
-     newParagraph.append(emptyHeart);
+      displayContainer.append(newDiv);
+      newDiv.append(newBucketListItem);
+      newBucketListItem.append(bucketGenerate);
+      newBucketListItem.append(newParagraph);
+      newParagraph.append(emptyHeart);
 
-     savedData.push(apiBucketItem)
+      savedData.push(apiBucketItem)
 
     },
     error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
+      console.error('Error: ', jqXHR.responseText);
     }
-});
+  });
 
 }
 
 function generateJoke() {
 
   var limit = 20;
-$.ajax({
+  $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/jokes?limit=' + limit,
-    headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed'},
+    headers: { 'X-Api-Key': '+0PxVJIjNF1TF+7DUSNy0Q==tE7LgHYM0D9YIVed' },
     contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
+    success: function (result) {
+      console.log(result);
 
-        const newDiv = $('<div class=display-item>');
-        const newJoke = $('<div class=joke-item>');
-        let randomJoke = Math.floor(Math.random() * result.length)
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
-        let apiJoke = result[randomJoke].joke;
-        let jokeDisplay = newJoke.text(apiJoke);
-        
+      const newDiv = $('<div class=display-item>');
+      const newJoke = $('<div class=joke-item>');
+      let randomJoke = Math.floor(Math.random() * result.length)
+      emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+      let apiJoke = result[randomJoke].joke;
+      let jokeDisplay = newJoke.text(apiJoke);
 
-        displayContainer.append(newDiv);
-        newDiv.append(newJoke);
-        newJoke.append(jokeDisplay);
-        newJoke.append(emptyHeart);
 
-        savedData.push(apiJoke);
-        console.log(savedData);
+      displayContainer.append(newDiv);
+      newDiv.append(newJoke);
+      newJoke.append(jokeDisplay);
+      newJoke.append(emptyHeart);
+
+      savedData.push(apiJoke);
+      console.log(savedData);
 
     },
     error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
+      console.error('Error: ', jqXHR.responseText);
     }
-});
+  });
 
 }
 
 
-splashContainer.on('click', splashButtons, function(e) {
+splashContainer.on('click', splashButtons, function (e) {
 
   console.log(e.target.innerHTML)
   if (e.target.innerHTML === 'Riddle') {
@@ -153,7 +161,7 @@ splashContainer.on('click', splashButtons, function(e) {
   }
 })
 
-submitButton.on('submit', function(e) {
+submitButton.on('submit', function (e) {
   e.preventDefault();
   let inputField = $('#nameoffavorite');
   let saveID = inputField.val();
