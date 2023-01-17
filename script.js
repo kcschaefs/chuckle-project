@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   $(".monica").monica();
 
-});
+
 
 /* Riddle API */
 function generateRiddle() {
@@ -35,9 +35,17 @@ function generateRiddle() {
       const newQuestionItem = $('<h3 class="monicaTitle">');
       let newQuestion = $('<div class="monicaContent">');
       let newAnswer = $('<p id="answer">');
+      buttonEl = $('<input/>').attr({
+        type: "button",
+        class: "splash-buttons",
+        id: "answerBtn",
+        value: "show answer",
+      });
       emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+
       let apiQuestion = result[0].question;
       let apiAnswer = result[0].answer;
+
       let riddleObject = {};
       riddleObject["Question"] = apiQuestion;
       riddleObject["Answer"] = apiAnswer;
@@ -50,7 +58,8 @@ function generateRiddle() {
       newQuestionContainer.append(newQuestionItem);
       newQuestionContainer.append(newQuestion);
       // newQuestion.append(result[0].question);
-      newQuestionContainer.append(newAnswer);
+      newQuestionContainer.append(buttonEl);
+      // newQuestionContainer.append(newAnswer);
       newQuestionContainer.append(emptyHeart);
 
 
@@ -171,13 +180,6 @@ submitButton.on('submit', function (e) {
   console.log(saveID);
 })
 
-// $("#nameoffavorite")
 
 
-// const saveBtnEl = $(":button");
-// saveBtnEl.click(function (event) {
-//   const inputText = (event.currentTarget.parentElement.children[1].value.trim()); // user input text
-//   const inputTime = (event.currentTarget.parentElement.id); // grabs the time block for user input
-//   calEvents[inputTime] = inputText; // ties the time block to the input text
-//   localStorage.setItem('calEvents', JSON.stringify(calEvents)); // sets it to local storage
-// })
+});
