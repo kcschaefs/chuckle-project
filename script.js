@@ -40,19 +40,24 @@ $.ajax({
       let apiAnswer = result[0].answer;
 
       displayContainer.append(newQuestionContainer);
+      
       newQuestionContainer.append(newQuestionItem);
       newQuestionContainer.append(newQuestion);
-      newQuestion.append(newAnswer);
+      // newQuestion.append(result[0].question);
+      newQuestionContainer.append(newAnswer);
       newAnswer.append(emptyHeart);
 
 
       console.log("got here");
+      console.log (newQuestion);
+      console.log(newAnswer);
       
-      newQuestion.text(apiQuestion);
-      newAnswer.text(apiAnswer);
+      newQuestion.text("Question: "+apiQuestion);
+      newAnswer.text("Answer: "+apiAnswer);
 
 
-      savedData.push(apiQuestion + apiAnswer)  
+      savedData.push(apiQuestion + apiAnswer) 
+      // console.log(savedData); 
 
 
   },
@@ -150,7 +155,7 @@ splashContainer.on('click', splashButtons, function(e) {
 
 submitButton.on('submit', function(e) {
   e.preventDefault();
-  let inputField = $('.favoriteName');
+  let inputField = $('#nameoffavorite');
   let saveID = inputField.val();
   localStorage = localStorage.setItem(saveID, (savedData.slice(-1)))
   console.log(localStorage);
@@ -158,3 +163,13 @@ submitButton.on('submit', function(e) {
   console.log(saveID);
 })
 
+// $("#nameoffavorite")
+
+
+// const saveBtnEl = $(":button");
+// saveBtnEl.click(function (event) {
+//   const inputText = (event.currentTarget.parentElement.children[1].value.trim()); // user input text
+//   const inputTime = (event.currentTarget.parentElement.id); // grabs the time block for user input
+//   calEvents[inputTime] = inputText; // ties the time block to the input text
+//   localStorage.setItem('calEvents', JSON.stringify(calEvents)); // sets it to local storage
+// })
