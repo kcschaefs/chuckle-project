@@ -48,8 +48,8 @@ $.ajax({
 
       console.log("got here");
       
-      newQuestion.text(apiQuestion);
-      newAnswer.text(apiAnswer);
+      newQuestion.text("Questioin: " + apiQuestion);
+      newAnswer.text("Answer: " + apiAnswer);
 
 
       savedData.push(apiQuestion + apiAnswer)  
