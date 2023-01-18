@@ -7,7 +7,7 @@ let emptyHeart;
 let savedData = [];
 let riddleContainer = $('.monica');
 let modal = $('.modal');
-let submitButton = $('.submit-button')
+let submitButton = $('#submit-button')
 
 
 $("#fade").modal({
@@ -187,7 +187,7 @@ $(document).ready(function () {
     }
   })
 
-  submitButton.on('submit', function (e) {
+  submitButton.on('click', function (e) {
     e.preventDefault();
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
