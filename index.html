@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,14 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   <title>Document</title>
 </head>
-
 <body>
   <video autoplay muted loop id="myVideo">
-    <source src="./assets/background/jellyfish.mp4" type="video/mp4">
+    <source src="./assets/background/ocean.mp4" type="video/mp4">
   </video>
-  <button>fav</button>
-
-
+  <button class="btn" id="favbtn" onclick="window.location='./favorites.html'" target="_self">fav</button>
   <!-- this is for favorite -->
   <div id="ex1" class="modal">
     <form>
@@ -30,40 +26,28 @@
         <label class="favoriteName">Name your favorite to save</label>
         <input type="text" class="form-control" id="nameoffavorite">
       </div>
-
       <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
     </form>
   </div>
-
   <div class="container mx-auto my-auto">
     <h2>Get a Chuck'le</h2>
-    <p>Click a button below to choose your chuck'le.</p>
-
     <div class="container-fluid">
       <div class="display-container">
-
-        
       </div>
     </div>
-
     <div>
       <div hidden> </div>
     </div>
-
     <div class="button-container">
-      <button id="bucket-list-button" class="splash-buttons">Bucket List</button>
-      <button id="riddles-button" class="splash-buttons">Riddle</button>
-      <button id="joke-button" class="splash-buttons">Joke</button>
+      <button class="btn" id="bucket-list-button" class="splash-buttons">Bucket List</button>
+      <button class="btn" id="riddles-button" class="splash-buttons">Riddle</button>
+      <button class="btn" id="joke-button" class="splash-buttons">Joke</button>
     </div>
-
-
-
   </div>
-
-
-
-
-  <button id="chuckbtn">chuck</button>
+  <div class="chuckbtnContainer">
+    <button id="chuckbtn" class="btn fireworks">DONT PRESS!</button>
+  </div>
+  <audio id="audio" src="./assets/images/Chuck_Norris.mp3"></audio>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
@@ -71,10 +55,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script src="./monica.js"></script>
   <script src="./script.js"></script>
-  <script src="./assets/js-apis/buck.js"></script>
-  <script src="./assets/js-apis/chuck.js"></script>
-  <script src="./assets/js-apis/joke.js"></script>
-  <script src="./assets/js-apis/ridd.js"></script>
 </body>
-
 </html>
