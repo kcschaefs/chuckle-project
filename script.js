@@ -191,8 +191,21 @@ $(document).ready(function () {
     e.preventDefault();
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
-    currentObject.saveID = saveID;
-    localStorage = localStorage.setItem(objectType, JSON.stringify(currentObject));
+
+    let storage = JSON.parse(localStorage.getItem('savedData'));
+
+  if (!storage) { // checks to see if there is anything in local storage first
+    storage = []; // creates an object for local strorage if none exists
+  };
+
+
+    storage.push({
+      type: objectType,
+      name: saveID,
+      value: currentObject
+    })
+    localStorage.setItem("savedData", JSON.stringify(storage));
+
     $.modal.close();
 
   });
