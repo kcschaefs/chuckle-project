@@ -2,7 +2,6 @@ body{
   background-size: cover;
   background-color: black;
 }
-
 .bgimg{
   position: fixed;
   right: 0;
@@ -10,5 +9,6 @@ body{
   min-width: 100%;
   min-height: 100%;
   opacity: .0175;
+  z-index: -1;
 }
 

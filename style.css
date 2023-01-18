@@ -2,7 +2,6 @@
   scroll-behavior: smooth;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
-
 #myVideo {
   position: fixed;
   right: 0;
@@ -11,152 +10,114 @@
   min-height: 100%;
   z-index: -1;
 }
-
+#favbtn {
+  position: fixed;
+  top: 1px;
+}
 .container {
-  /* position: fixed; */
   top: 25%;
   background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
+  color: white;
   width: 50%;
   padding: 150px 150px;
   align-items: center;
   left: 25%;
   margin: 50px 50px;
+  border-radius: 20%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  text-align: center;
 }
-
-button {
+h2{
+  padding-bottom: 50px;
+}
+.btn {
   padding: 10px;
   background: none;
   color: white;
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  /* outline: 1px solid; */
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 0px;
+  text-shadow: none;
+  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: goldenrod;
   margin-left: 10%;
   margin-right: 10%;
 }
-
-#btn-1 {
-  border: 0 solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 0px;
-  text-shadow: none;
-  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  outline-color: rgba(255, 255, 255, 0.5);
-  outline-offset: 0px;
-}
-
-#btn-1:hover {
+.btn:hover {
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
   outline-offset: 15px;
   outline-color: rgba(255, 255, 255, 0);
   text-shadow: 1px 1px 2px #427388;
 }
-
-#btn-2 {
-  border: 0 solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 0px;
-  text-shadow: none;
-  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  outline-color: rgba(255, 255, 255, 0.5);
-  outline-offset: 0px;
+#chuckbtn {
+  position: fixed;
+  bottom: 1px;
+  opacity: 8%;
+  visibility: hidden;
 }
-
-#btn-2:hover {
-  border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-  outline-offset: 15px;
-  outline-color: rgba(255, 255, 255, 0);
-  text-shadow: 1px 1px 2px #427388;
-}
-
-#btn-3 {
-  border: 0 solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-  outline: 1px solid;
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 0px;
-  text-shadow: none;
-  -webkit-transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  outline-color: rgba(255, 255, 255, 0.5);
-  outline-offset: 0px;
-}
-
-#btn-3:hover {
-  border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-  outline-offset: 15px;
-  outline-color: rgba(255, 255, 255, 0);
-  text-shadow: 1px 1px 2px #427388;
-}
-
 .simpleFAQ_list li {
   list-style: none;
 }
-
 .simpleFAQ_list .question {
   padding-left: 18px;
   background: transparent url('plus.png') left center no-repeat;
   cursor: pointer;
 }
-
 .simpleFAQShowing .question {
   background: transparent url('minus.png') left center no-repeat;
 }
-
 .simpleFAQ_list .simpleFAQHover {
   color: #060;
 }
-
 .simpleFAQ_item .answer {
   margin-left: 1em;
   border: 1px solid #66c;
   padding: 0.4em;
 }
-
 .simpleFAQ_item .tags {
   display: none;
 }
-
 .display-item {
   text-align: center;
   margin-top: 25px;
 }
-
 .modal {
   height: 50%;
   width: 40%;
-
 }
-
 .form-control {
   border-radius: 15px;
   margin: 25px 0;
 }
-
 .hide {
   display: none;
 }
-
 .textContEl {
-  background: #222546;
+  background: rgba(0, 0, 128, 0.392);
   padding: 20px 15px;
   margin-bottom: 30px;
+  border-radius: 25%;
+  border-style: solid;
+  border-color: navy;
+  border-width: 3px;
 }
-
 .button-container {
   display: flex;
 }
-
 #answerBtn {
   margin: 10px 10px;
 }
-
 #answer {
   margin: 10px 10px;
 }
