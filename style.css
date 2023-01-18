@@ -143,15 +143,20 @@ button {
   display: none;
 }
 
-.container-fluid {
-  outline: solid 1px red;
-}
-
-.display-container {
+.textContEl {
   background: #222546;
-  margin: 10px 10px;
+  padding: 20px 15px;
+  margin-bottom: 30px;
 }
 
 .button-container {
   display: flex;
+}
+
+#answerBtn {
+  margin: 10px 10px;
+}
+
+#answer {
+  margin: 10px 10px;
 }
