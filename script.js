@@ -140,7 +140,7 @@ $(document).ready(function () {
         emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         let apiJoke = result[randomJoke].joke;
         let jokeDisplay = newJoke.text(apiJoke);
-        currentObject = jokeDisplay;
+        currentObject = apiJoke;
 
         displayContainer.append(textContEl);
         textContEl.append(newDiv);
