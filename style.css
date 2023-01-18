@@ -63,7 +63,7 @@ h2{
 .chuckbtnContainer{
   position: absolute;
   bottom: 0px;
-  width: 50%;
+  width: 100%;
 }
 #chuckbtn {
   visibility: hidden;
