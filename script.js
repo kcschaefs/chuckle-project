@@ -104,6 +104,7 @@ $(document).ready(function () {
         emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         const apiBucketItem = result.item
         let bucketGenerate = newBucketListItem.text(apiBucketItem)
+        currentObject = apiBucketItem;
 
 
         displayContainer.append(textContEl);
@@ -113,7 +114,7 @@ $(document).ready(function () {
         newBucketListItem.append(newParagraph);
         newParagraph.append(emptyHeart);
 
-        savedData.push(apiBucketItem)
+        // savedData.push(apiBucketItem)
 
       },
 
@@ -139,7 +140,7 @@ $(document).ready(function () {
         emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         let apiJoke = result[randomJoke].joke;
         let jokeDisplay = newJoke.text(apiJoke);
-
+        currentObject = jokeDisplay;
 
         displayContainer.append(textContEl);
         textContEl.append(newDiv);
@@ -147,8 +148,8 @@ $(document).ready(function () {
         newJoke.append(jokeDisplay);
         newJoke.append(emptyHeart);
 
-        savedData.push(apiJoke);
-        console.log(savedData);
+        // savedData.push(apiJoke);
+        // console.log(savedData);
 
       },
       error: function ajaxError(jqXHR) {
@@ -175,10 +176,12 @@ $(document).ready(function () {
     else if (e.target.innerHTML === 'Bucket List') {
       removeContent();
       generateBucketListItem();
+      objectType = "Bucket List";
     }
     else if (e.target.innerHTML === 'Joke') {
       removeContent();
       generateJoke();
+      objectType = "Joke";
     }
   })
 
