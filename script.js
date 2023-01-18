@@ -24,7 +24,8 @@ $(document).ready(function () {
 
 
 
-  /* Riddle API */
+  // riddle api and setup for serving -----------------------------------------------
+
   function generateRiddle() {
 
     $.ajax({
@@ -86,6 +87,7 @@ $(document).ready(function () {
 
   }
 
+  // bucket list api and setup for serving -----------------------------------------------
 
   function generateBucketListItem() {
 
@@ -122,6 +124,8 @@ $(document).ready(function () {
 
   }
 
+  // joke api and setup for serving -----------------------------------------------
+
   function generateJoke() {
 
     var limit = 20;
@@ -148,9 +152,6 @@ $(document).ready(function () {
         newJoke.append(jokeDisplay);
         newJoke.append(emptyHeart);
 
-        // savedData.push(apiJoke);
-        // console.log(savedData);
-
       },
       error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
@@ -159,35 +160,39 @@ $(document).ready(function () {
 
   }
 
-  function removeContent() {
+  // chuckle serving --------------------------------------------------------------
+
+  function removeContent() { // removes any served content
     displayContainer.empty();
   }
 
   splashContainer.on('click', splashButtons, function (e) {
 
-    console.log(e.target.innerHTML)
+    // console.log(e.target.innerHTML)
 
-    if (e.target.innerHTML === 'Riddle') {
+    if (e.target.innerHTML === 'Riddle') {  // serves riddle
       removeContent();
       generateRiddle();
       objectType = "Riddle";
     }
 
-    else if (e.target.innerHTML === 'Bucket List') {
+    else if (e.target.innerHTML === 'Bucket List') {  // serves bucket list item
       removeContent();
       generateBucketListItem();
       objectType = "Bucket List";
     }
-    else if (e.target.innerHTML === 'Joke') {
+    else if (e.target.innerHTML === 'Joke') {  //serves joke
       removeContent();
       generateJoke();
       objectType = "Joke";
     }
   })
 
+  // local storage setting ------------------------------------------------------
+
   let savedData = JSON.parse(localStorage.getItem('savedData'));
 
-  submitButton.on('click', function (e) {
+  submitButton.on('click', function (e) { // adds the current fact/joke to local storage
     e.preventDefault();
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
@@ -199,7 +204,7 @@ $(document).ready(function () {
   };
 
 
-    storage.push({
+    storage.push({ // adds new favorites to local storage in the format needed to serve the favorites cards
       type: objectType,
       name: saveID,
       value: currentObject
@@ -210,6 +215,7 @@ $(document).ready(function () {
 
   });
 
+  // chuck norris easter egg functionality ------------------------------------------------------
 
   function play() {
 
