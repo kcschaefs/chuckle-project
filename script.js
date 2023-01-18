@@ -8,6 +8,10 @@ let savedData = [];
 let riddleContainer = $('.monica');
 let modal = $('.modal');
 let submitButton = $('#submit-button')
+let chuckButton = $('#chuckbtn');
+let chuckbtnContainer = $('.chuckbtnContainer');
+let currentObject;
+let objectType;
 
 
 $("#fade").modal({
@@ -51,8 +55,7 @@ $(document).ready(function () {
         let riddleObject = {};
         riddleObject["Question"] = apiQuestion;
         riddleObject["Answer"] = apiAnswer;
-
-        // console.log(riddleObject);
+        currentObject = riddleObject;
 
 
         displayContainer.append(textContEl);
@@ -68,16 +71,11 @@ $(document).ready(function () {
           newQuestionContainer.append(emptyHeart);
           buttonEl.hide();
         });
-        // console.log("got here");
-        // console.log(newQuestion);
-        // console.log(newAnswer);
 
-        newQuestion.text("Question: " + apiQuestion);
+        newQuestion.text(apiQuestion);
         newAnswer.text("Answer: " + apiAnswer);
 
         savedData.push(apiQuestion + apiAnswer)
-        // console.log(savedData);
-
 
       },
       error: function ajaxError(jqXHR) {
@@ -87,8 +85,6 @@ $(document).ready(function () {
 
 
   }
-
-
 
 
   function generateBucketListItem() {
@@ -120,9 +116,7 @@ $(document).ready(function () {
         savedData.push(apiBucketItem)
 
       },
-      error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-      }
+
     });
 
   }
@@ -164,17 +158,18 @@ $(document).ready(function () {
 
   }
 
-  function removeContent () {
+  function removeContent() {
     displayContainer.empty();
   }
 
   splashContainer.on('click', splashButtons, function (e) {
 
     console.log(e.target.innerHTML)
-    
+
     if (e.target.innerHTML === 'Riddle') {
       removeContent();
       generateRiddle();
+      objectType = "Riddle";
     }
 
     else if (e.target.innerHTML === 'Bucket List') {
@@ -187,16 +182,36 @@ $(document).ready(function () {
     }
   })
 
+  let savedData = JSON.parse(localStorage.getItem('savedData'));
+
   submitButton.on('click', function (e) {
     e.preventDefault();
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
-    localStorage = localStorage.setItem(saveID, (savedData.slice(-1)))
-    console.log(localStorage);
+    currentObject.saveID = saveID;
+    localStorage = localStorage.setItem(objectType, JSON.stringify(currentObject));
+    $.modal.close();
 
-    console.log(saveID);
+  });
+
+
+  function play() {
+
+    var audioTag = $("#audio")
+    console.log(audioTag)
+    audio.play();
+    chuckButton.replaceWith('<img src="./assets/images/chuck-image.png">')
+  }
+
+  chuckButton.on('click', function () {
+    play();
+
   })
 
+  chuckbtnContainer.hover(
+    function () {
+      chuckButton.attr('style', 'visibility:visible');
+    })
 
 
 });
