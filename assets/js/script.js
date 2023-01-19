@@ -212,6 +212,7 @@ $(document).ready(function () {
       value: currentObject
     })
     localStorage.setItem("savedData", JSON.stringify(storage));
+    inputField.val("");
 
     $.modal.close();
 

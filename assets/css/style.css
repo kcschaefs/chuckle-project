@@ -15,29 +15,31 @@
   top: 1px;
 }
 .container {
-  top: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   width: 50%;
-  padding: 150px 150px;
-  align-items: center;
-  left: 25%;
-  margin: 50px 50px;
+  padding: 5%;
+  margin: 100px 100px;
   border-radius: 20%;
   border-style: solid;
   border-width: 5px;
   border-color: black;
-  text-align: center;
 }
-h2{
+h2 {
   padding-bottom: 50px;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .btn {
   padding: 10px;
   background: none;
   color: white;
-  /* margin-left: 10%;
-  margin-right: 10%; */
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   /* outline: 1px solid; */
   outline-color: rgba(255, 255, 255, 0);
@@ -60,12 +62,10 @@ h2{
   outline-color: rgba(255, 255, 255, 0);
   text-shadow: 1px 1px 2px #427388;
 }
-.chuckbtnContainer{
-  position: absolute;
-  bottom: 0px;
-  width: 2%;
-}
 #chuckbtn {
+  position: fixed;
+  bottom: 1px;
+  opacity: 8%;
   visibility: hidden;
 }
 .simpleFAQ_list li {
@@ -111,12 +111,45 @@ h2{
   margin-bottom: 30px;
   border-radius: 25%;
   border-style: solid;
-  border-color: rgb(5, 72, 198);
+  border-color: navy;
   border-width: 3px;
 }
-.button-container {
+/* .button-container {
   display: flex;
+} */
+#answerBtn {
+  margin: 10px 10px;
 }
+#empty-heart {
+  padding: 5px;
+}
+#answer {
+  margin: 10px 10px;
+}
+/* Smartphone */
+@media only screen and (max-width: 600px) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .container {
+    width: 80%;
+  }
+}
+/* desktop */
+@media only screen and (min-width: 992px) {
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+}
+
+#submit-button {
+background-color: black;
+color: white;
+}
+
 #answerBtn {
   margin: 10px 10px;
   border-color: goldenrod;
@@ -133,13 +166,4 @@ h2{
   border-style: solid;
   border-width: 3px;
   border-color: goldenrod;
- 
-}
-#answer {
-  margin: 10px 10px;
-}
-
-#submit-button {
-background-color: black;
-color: white;
 }
