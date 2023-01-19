@@ -167,3 +167,11 @@ color: white;
   border-width: 3px;
   border-color: goldenrod;
 }
+
+a{
+  color:inherit;
+}
+
+a:hover {
+  color: red;
+}
