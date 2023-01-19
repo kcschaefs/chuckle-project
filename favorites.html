@@ -15,23 +15,28 @@
 <body>
 
   <img src="./assets/background/chucknph.jpg" class="bgimg">
-  <div class="favoriteContainer container-fluid row ">
-    <div class="card m-1" style="width: 18rem;">
+  <div class="container-fluid">
+  <div class="favoriteContainer row mx-auto">
+  <!--  <div class="card m-1" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
           content.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-    </div>
+    </div>-->
   </div>
+</div>
 
-  <button onclick="window.location='./index.html'" target="_self">Back</button>
-
+  <button class="btn back-button" onclick="window.location='./index.html'" target="_self">Back</button>
+  <button class="btn back-button clear">Clear</button>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script src="script.js"></script>
+  <script src="favorites.js"></script>
+  <script src="./monica.js"></script>
 
 </body>
 </html>

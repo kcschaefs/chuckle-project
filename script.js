@@ -12,6 +12,7 @@ let chuckButton = $('#chuckbtn');
 let chuckbtnContainer = $('.chuckbtnContainer');
 let currentObject;
 let objectType;
+let storage;
 
 
 $("#fade").modal({
@@ -197,7 +198,7 @@ $(document).ready(function () {
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
 
-    let storage = JSON.parse(localStorage.getItem('savedData'));
+    storage = JSON.parse(localStorage.getItem('savedData'));
 
   if (!storage) { // checks to see if there is anything in local storage first
     storage = []; // creates an object for local strorage if none exists
