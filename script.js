@@ -24,7 +24,8 @@ $(document).ready(function () {
 
 
 
-  /* Riddle API */
+  // riddle api and setup for serving -----------------------------------------------
+
   function generateRiddle() {
 
     $.ajax({
@@ -86,6 +87,7 @@ $(document).ready(function () {
 
   }
 
+  // bucket list api and setup for serving -----------------------------------------------
 
   function generateBucketListItem() {
 
@@ -104,6 +106,7 @@ $(document).ready(function () {
         emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         const apiBucketItem = result.item
         let bucketGenerate = newBucketListItem.text(apiBucketItem)
+        currentObject = apiBucketItem;
 
 
         displayContainer.append(textContEl);
@@ -113,13 +116,15 @@ $(document).ready(function () {
         newBucketListItem.append(newParagraph);
         newParagraph.append(emptyHeart);
 
-        savedData.push(apiBucketItem)
+        // savedData.push(apiBucketItem)
 
       },
 
     });
 
   }
+
+  // joke api and setup for serving -----------------------------------------------
 
   function generateJoke() {
 
@@ -139,16 +144,13 @@ $(document).ready(function () {
         emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         let apiJoke = result[randomJoke].joke;
         let jokeDisplay = newJoke.text(apiJoke);
-
+        currentObject = apiJoke;
 
         displayContainer.append(textContEl);
         textContEl.append(newDiv);
         newDiv.append(newJoke);
         newJoke.append(jokeDisplay);
         newJoke.append(emptyHeart);
-
-        savedData.push(apiJoke);
-        console.log(savedData);
 
       },
       error: function ajaxError(jqXHR) {
@@ -158,42 +160,62 @@ $(document).ready(function () {
 
   }
 
-  function removeContent() {
+  // chuckle serving --------------------------------------------------------------
+
+  function removeContent() { // removes any served content
     displayContainer.empty();
   }
 
   splashContainer.on('click', splashButtons, function (e) {
 
-    console.log(e.target.innerHTML)
+    // console.log(e.target.innerHTML)
 
-    if (e.target.innerHTML === 'Riddle') {
+    if (e.target.innerHTML === 'Riddle') {  // serves riddle
       removeContent();
       generateRiddle();
       objectType = "Riddle";
     }
 
-    else if (e.target.innerHTML === 'Bucket List') {
+    else if (e.target.innerHTML === 'Bucket List') {  // serves bucket list item
       removeContent();
       generateBucketListItem();
+      objectType = "Bucket List";
     }
-    else if (e.target.innerHTML === 'Joke') {
+    else if (e.target.innerHTML === 'Joke') {  //serves joke
       removeContent();
       generateJoke();
+      objectType = "Joke";
     }
   })
 
+  // local storage setting ------------------------------------------------------
+
   let savedData = JSON.parse(localStorage.getItem('savedData'));
 
-  submitButton.on('click', function (e) {
+  submitButton.on('click', function (e) { // adds the current fact/joke to local storage
     e.preventDefault();
     let inputField = $('#nameoffavorite');
     let saveID = inputField.val();
-    currentObject.saveID = saveID;
-    localStorage = localStorage.setItem(objectType, JSON.stringify(currentObject));
+
+    let storage = JSON.parse(localStorage.getItem('savedData'));
+
+  if (!storage) { // checks to see if there is anything in local storage first
+    storage = []; // creates an object for local strorage if none exists
+  };
+
+
+    storage.push({ // adds new favorites to local storage in the format needed to serve the favorites cards
+      type: objectType,
+      name: saveID,
+      value: currentObject
+    })
+    localStorage.setItem("savedData", JSON.stringify(storage));
+
     $.modal.close();
 
   });
 
+  // chuck norris easter egg functionality ------------------------------------------------------
 
   function play() {
 
