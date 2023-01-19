@@ -50,7 +50,9 @@ $(document).ready(function () {
           id: "answerBtn",
           value: "show answer",
         });
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <ion-icon name="heart">').attr({
+          style: "fill:transparent; stroke:white; stroke-width:30; text-decoration:none; opacity:1;",
+        });
 
         let apiQuestion = result[0].question;
         let apiAnswer = result[0].answer;
@@ -105,7 +107,9 @@ $(document).ready(function () {
         const newDiv = $('<div class=display-item>')
         const newBucketListItem = $('<div class=bucketlistItem>')
         const newParagraph = $('<p>');
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <ion-icon name="heart">').attr({
+          style: "fill:transparent; stroke:white; stroke-width:30; text-decoration:none; opacity:1;",
+        });
         const apiBucketItem = result.item
         let bucketGenerate = newBucketListItem.text(apiBucketItem)
         currentObject = apiBucketItem;
@@ -143,7 +147,10 @@ $(document).ready(function () {
         const newDiv = $('<div class=display-item>');
         const newJoke = $('<div class=joke-item>');
         let randomJoke = Math.floor(Math.random() * result.length)
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        newHeartDiv = $("<div>")
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <ion-icon name="heart">').attr({
+          style: "fill:transparent; stroke:white; stroke-width:30; text-decoration:none; opacity:1;",
+        });
         let apiJoke = result[randomJoke].joke;
         let jokeDisplay = newJoke.text(apiJoke);
         currentObject = apiJoke;
@@ -152,7 +159,8 @@ $(document).ready(function () {
         textContEl.append(newDiv);
         newDiv.append(newJoke);
         newJoke.append(jokeDisplay);
-        newJoke.append(emptyHeart);
+        newJoke.append(newHeartDiv);
+        newHeartDiv.append(emptyHeart);
 
       },
       error: function ajaxError(jqXHR) {
@@ -213,8 +221,10 @@ $(document).ready(function () {
     })
     localStorage.setItem("savedData", JSON.stringify(storage));
     inputField.val("");
-
     $.modal.close();
+    emptyHeart.attr({
+      style: "color:red;"
+    })
 
   });
 
