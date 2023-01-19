@@ -29,5 +29,10 @@ body{
   border-style: solid;
   border-width: 3px;
   border-color: goldenrod;
-  margin-left:50%;
+  margin-left:35%;
 }
+
+.container-inline {
+  position:sticky;
+}
+

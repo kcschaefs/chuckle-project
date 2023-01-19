@@ -13,6 +13,7 @@ let chuckbtnContainer = $('.chuckbtnContainer');
 let currentObject;
 let objectType;
 let storage;
+let heartimage = $('#empty-heart')
 
 
 $("#fade").modal({
@@ -49,7 +50,7 @@ $(document).ready(function () {
           id: "answerBtn",
           value: "show answer",
         });
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
 
         let apiQuestion = result[0].question;
         let apiAnswer = result[0].answer;
@@ -104,7 +105,7 @@ $(document).ready(function () {
         const newDiv = $('<div class=display-item>')
         const newBucketListItem = $('<div class=bucketlistItem>')
         const newParagraph = $('<p>');
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         const apiBucketItem = result.item
         let bucketGenerate = newBucketListItem.text(apiBucketItem)
         currentObject = apiBucketItem;
@@ -142,7 +143,7 @@ $(document).ready(function () {
         const newDiv = $('<div class=display-item>');
         const newJoke = $('<div class=joke-item>');
         let randomJoke = Math.floor(Math.random() * result.length)
-        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
+        emptyHeart = $('<a href="#ex1" rel="modal:open"> <img id="empty-heart" src="./assets/images/empty-heart.png">').attr('class', 'heart-empty')
         let apiJoke = result[randomJoke].joke;
         let jokeDisplay = newJoke.text(apiJoke);
         currentObject = apiJoke;
@@ -170,7 +171,7 @@ $(document).ready(function () {
   splashContainer.on('click', splashButtons, function (e) {
 
     // console.log(e.target.innerHTML)
-
+    
     if (e.target.innerHTML === 'Riddle') {  // serves riddle
       removeContent();
       generateRiddle();
