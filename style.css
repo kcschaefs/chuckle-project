@@ -63,7 +63,7 @@ h2{
 .chuckbtnContainer{
   position: absolute;
   bottom: 0px;
-  width: 100%;
+  width: 2%;
 }
 #chuckbtn {
   visibility: hidden;
@@ -120,7 +120,6 @@ h2{
 #answerBtn {
   margin: 10px 10px;
   border-color: goldenrod;
-  background-color: ;
   padding: 10px;
   background: none;
   color: white;
