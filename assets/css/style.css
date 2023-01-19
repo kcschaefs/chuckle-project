@@ -62,10 +62,12 @@ h2 {
   outline-color: rgba(255, 255, 255, 0);
   text-shadow: 1px 1px 2px #427388;
 }
+.chuckbtnContainer{
+  position: absolute;
+  bottom: 0px;
+  width: 3%;
+}
 #chuckbtn {
-  position: fixed;
-  bottom: 1px;
-  opacity: 8%;
   visibility: hidden;
 }
 .simpleFAQ_list li {
