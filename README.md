@@ -48,4 +48,4 @@ Saved items page
 ## Links
 
 Github Repo: https://github.com/kcschaefs/chuckle-project
-Github Pages: https://kcschaefs.github.io/chuckle-project/index.html
+Github Pages: 
