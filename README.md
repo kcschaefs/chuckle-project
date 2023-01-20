@@ -26,7 +26,24 @@ Clay
 
 ## Screenshots
 
-![ ](./assets/images/project%20screenshot.jpg)
+Main page
+
+![ ](https://raw.githubusercontent.com/kcschaefs/chuckle-project/treadme/assets/images/Capture.PNG)
+
+Item Generated
+
+
+![ ](https://raw.githubusercontent.com/kcschaefs/chuckle-project/treadme/assets/images/Capture2.PNG)
+
+Pop up for save
+
+
+![ ](https://raw.githubusercontent.com/kcschaefs/chuckle-project/treadme/assets/images/Capture3.PNG)
+
+Saved items page
+
+
+![ ](https://raw.githubusercontent.com/kcschaefs/chuckle-project/treadme/assets/images/Capture4.PNG)
 
 ## Links
 
